@@ -1,5 +1,5 @@
 ## Application Java Swing & JDBC ##
-# Thème : Gestion Événementielle #
+# Thème : Événementiel #
 ### 1. Introduction ###
 
 Dans le cadre du module Java (Swing & JDBC), nous avons réalisé une application desktop permettant la gestion d’événements, des participants et des inscriptions.
