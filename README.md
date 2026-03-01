@@ -31,25 +31,45 @@ Générer un installateur Windows via Inno Setup
 ### 3. Architecture du Projet
 
 src/
+
  ├── model
+ 
  │     ├── Evenement.java
+ 
  │     ├── Participant.java
+ 
  │     └── Inscription.java
+ 
  ├── dao
+ 
  │     ├── EvenementDAO.java
+ 
  │     ├── ParticipantDAO.java
+ 
  │     ├── InscriptionDAO.java
+ 
  ├── dao.impl
+ 
  │     ├── EvenementDAOImpl.java
+ 
  │     ├── ParticipantDAOImpl.java
+ 
  │     └── InscriptionDAOImpl.java
+ 
  ├── view
+ 
  │     ├── MainFrame.java
+ 
  │     ├── EvenementPanel.java
+ 
  │     ├── ParticipantPanel.java
+ 
  │     └── InscriptionPanel.java
+ 
  ├── util
+ 
  │     └── DBConnection.java
+ 
  
 ### 4. Implémentation CRUD
 
