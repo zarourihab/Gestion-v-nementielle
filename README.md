@@ -1,7 +1,6 @@
-RAPPORT DE PROJET
-Application Java Swing & JDBC
-Thème : Gestion Événementielle
-1. Introduction
+## Application Java Swing & JDBC ##
+# Thème : Gestion Événementielle #
+### 1. Introduction ###
 
 Dans le cadre du module Java (Swing & JDBC), nous avons réalisé une application desktop permettant la gestion d’événements, des participants et des inscriptions.
 
@@ -18,58 +17,19 @@ Filtrer par lieu ou date
 Afficher des statistiques (participants par événement)
 
 Générer un installateur Windows via Inno Setup
-2. Analyse & Conception UML
-<img width="926" height="819" alt="Capture d&#39;écran 2026-03-01 184227" src="https://github.com/user-attachments/assets/5757ee89-e7ee-41ec-846b-e1b9997a19e4" />
-<img width="1074" height="752" alt="Capture d&#39;écran 2026-03-01 184324" src="https://github.com/user-attachments/assets/12785e3b-971f-4857-9c8e-b13902e404d5" />
-Relations :
 
-Un événement possède plusieurs inscriptions (1..*)
+### 2. Analyse & Conception UML###
 
-Un participant possède plusieurs inscriptions (1..*)
+*Diagramme de classe:*
 
-Une inscription relie 1 événement et 1 participant
-3. Conception de la Base de Données
-3.1 Schéma relationnel
-Table EVENEMENT
+<img width="399" height="323" alt="Capture d’écran 2026-03-01 180439" src="https://github.com/user-attachments/assets/757d8018-0a14-417a-9bec-09fac78880dc" />
 
-id (PK)
+*Diagramme de cas d'utilisation:*
 
-titre
+<img width="440" height="335" alt="Capture d’écran 2026-03-01 180651" src="https://github.com/user-attachments/assets/c03f06f1-dea8-45b3-80a6-00fa5bc48e48" />
 
-lieu
+### 3. Architecture du Projet###
 
-date
-
-capacite
-
-Table PARTICIPANT
-
-id (PK)
-
-nom
-
-email (UNIQUE)
-
-organisation
-
-Table INSCRIPTION
-
-id (PK)
-
-evenement_id (FK)
-
-participant_id (FK)
-
-date_inscription
-
-Contraintes :
-
-email UNIQUE
-
-Clés étrangères avec ON DELETE CASCADE
-
-Interdiction double inscription (UNIQUE(evenement_id, participant_id))
-4. Architecture du Projet
 src/
  ├── model
  │     ├── Evenement.java
@@ -95,14 +55,18 @@ src/
 
 Un CRUD complet est réalisé pour les trois entités (Evenement, Participant, Inscription) avec méthodes create, update, delete, findById et findAll.
 Les opérations utilisent des PreparedStatement, avec gestion des erreurs (try/catch) et validation des champs obligatoires.
+
 6. Filtrage & Recherche
 
 Un système de filtrage par lieu et date ainsi qu’une recherche par titre est implémenté via TableRowSorter ou requêtes SQL paramétrées.
 Le filtrage est fonctionnel et sécurisé. 
+
 7. Sécurité
+
 Les mots de passe sont sécurisés avec un hash SHA-256 et ne sont jamais stockés en clair.
 Lors du login, le mot de passe saisi est haché puis comparé au hash enregistré.
-8. Statistiques & Graphiques
+
+9. Statistiques & Graphiques
 
 Un graphique en barres (JFreeChart) affiche le nombre de participants par événement à partir d’une requête SQL d’agrégation. Les données sont calculées dynamiquement et le graphique est clair et lisible
 9. Ergonomie
